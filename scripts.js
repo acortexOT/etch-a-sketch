@@ -1,4 +1,13 @@
-//Loop createElement for 16*16 div with class 'item [i]', (get width and safe as max)
+newCanvas(16);
+//Loop createElement for canvas with divs class grid-item and id 'item [i]', (get width and safe as max)
+function newCanvas(number) {
+const container = document.querySelector('#container');
+for (let i = 1; i < number**2 + 1; ++i) {
+    let activeGrid = document.createElement('div');
+    activeGrid.classList.add('grid-item')
+    activeGrid.id = `item-${i}`;
+    container.appendChild(activeGrid);
+}};
 //hover eventListener triggers function 
     //if no color: that randomly assigns RBG background color to item
     //if color: increases darkness by 10%
