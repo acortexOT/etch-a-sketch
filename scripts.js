@@ -8,13 +8,25 @@ while(container.firstChild) {   //remove old canvas if present
     container.removeChild(container.firstChild);
 };
 container.style.gridTemplateColumns = `repeat(${number}, auto)`; //set up grid template
-for (let i = 1; i < number**2 + 1; ++i) {
-    let activeGrid = document.createElement('div');
-    activeGrid.classList.add('grid-item')
-    activeGrid.id = `item-${i}`;
-    container.appendChild(activeGrid);
-    activeGrid.addEventListener('mouseover', () => {   //activate selected div once mouse hovers over it
-                activeGrid.style.backgroundColor = `${getRandomColor()}`;  //randomly selects color
+    for (let i = 1; i < number**2 + 1; ++i) {
+        let activeGrid = document.createElement('div');
+        activeGrid.classList.add('grid-item')
+        activeGrid.id = `item-${i}`;
+        container.appendChild(activeGrid);
+        activeGrid.addEventListener('mouseover', () => {   //activate selected div once mouse hovers over it
+            if (activeGrid.style.backgroundColor === "") {  //if no color randomly select color
+                activeGrid.style.backgroundColor = `${getRandomColor()}`;  
+            }else { //if color, darken color by 10%
+                
+
+                for (i = 0; i < 101; i+=10) {
+                    if (activeGrid.style.filter === `brightness(${i}%)`) {   //THIS IS PROBABLY THE AREA THAT ISN'T WORKING!
+                        activeGrid.style.filter = `brightness(${i-10}%)`;
+                    }
+                }
+
+
+            }
         });
     };
 };
