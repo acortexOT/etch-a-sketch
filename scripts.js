@@ -54,9 +54,9 @@ function getDarkerColor(rgbColor) {
     rgbColor = rgbColor.slice(4,-1);    //remove rgb( and )
     let arrColor = rgbColor.split(",");     //convert to array of 3 numbers
 
-    let r = Math.floor(arrColor[0]*.7); //decrease by 30% and round to lowest whole number
-    let g = Math.floor(arrColor[1]*.7);
-    let b = Math.floor(arrColor[2]*.7);
+    let r = Math.floor(arrColor[0]*.6); //decrease by 30% and round to lowest whole number
+    let g = Math.floor(arrColor[1]*.6);
+    let b = Math.floor(arrColor[2]*.6);
 
     const darkColor = 'rgb('+ r +',' + g +','+ b + ')'  //concat to build new rgb color
 return darkColor; 
